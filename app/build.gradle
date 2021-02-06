@@ -48,4 +48,12 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation "androidx.constraintlayout:constraintlayout:$version_constraint_layout"
+    // navigation
+    def nav_version = "2.3.0"
+    implementation "android.arch.navigation:navigation-fragment:$nav_version"
+    implementation "android.arch.navigation:navigation-ui:$nav_version"
+
+    implementation 'androidx.fragment:fragment-ktx:1.2.5'
 }
