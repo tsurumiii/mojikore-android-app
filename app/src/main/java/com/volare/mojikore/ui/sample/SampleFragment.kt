@@ -19,6 +19,6 @@ class SampleFragment: Fragment() {
         }
 
         return binding.root
-        
+
     }
 }
