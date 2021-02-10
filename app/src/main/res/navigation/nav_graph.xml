@@ -3,16 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@+id/FirstFragment">
+    app:startDestination="@+id/SampleFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/SampleFragment"
         android:name="com.volare.mojikore.ui.sample.SampleFragment"
         android:label="sample"
         tools:layout="@layout/sample_fragment">
         <action
             android:id="@+id/action_FirstFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_mojiDetailFragment"
+            app:destination="@id/mojiDetailFragment" />
     </fragment>
 
     <fragment
@@ -21,5 +24,11 @@
         android:label="sample"
         tools:layout="@layout/home_fragment">
     </fragment>
+    <fragment
+        android:id="@+id/mojiDetailFragment"
+        android:name="com.volare.mojikore.ui.mojiDetail.MojiDetailFragment"
+        android:label="MojiDetailFragment"
+        tools:layout="@layout/moji_detail_fragment"
+        />
 
 </navigation>

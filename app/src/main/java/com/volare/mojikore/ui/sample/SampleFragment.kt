@@ -18,7 +18,10 @@ class SampleFragment: Fragment() {
             view.findNavController().navigate(R.id.action_FirstFragment_to_homeFragment)
         }
 
-        return binding.root
+        binding.mojiDetailButton.setOnClickListener { view: View ->
+            view.findNavController().navigate(R.id.action_FirstFragment_to_mojiDetailFragment)
+        }
 
+        return binding.root
     }
 }
