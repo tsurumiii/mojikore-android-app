@@ -4,6 +4,7 @@ package com.volare.mojikore.ui.home
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
@@ -18,6 +19,7 @@ import androidx.navigation.findNavController
 import com.volare.mojikore.MainActivity
 import com.volare.mojikore.R
 import com.volare.mojikore.databinding.HomeFragmentBinding
+import kotlinx.android.synthetic.main.home_fragment.*
 
 class HomeFragment: Fragment() {
     private val CAMERA_REQUEST_CODE = 1
@@ -71,5 +73,9 @@ class HomeFragment: Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
+        data?.extras?.get("data")?.let {
+            image.setImageBitmap(it as Bitmap)
+        }
     }
 }
