@@ -23,6 +23,9 @@
         android:name="com.volare.mojikore.ui.home.HomeFragment"
         android:label="sample"
         tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/action_homeFragment_to_mojiListFragment"
+            app:destination="@id/mojiListFragment" />
     </fragment>
     <fragment
         android:id="@+id/mojiDetailFragment"
@@ -30,5 +33,9 @@
         android:label="MojiDetailFragment"
         tools:layout="@layout/moji_detail_fragment"
         />
+    <fragment
+        android:id="@+id/mojiListFragment"
+        android:name="com.volare.mojikore.ui.mojiList.MojiListFragment"
+        android:label="MojiListFragment" />
 
 </navigation>
