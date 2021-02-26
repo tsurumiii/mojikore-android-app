@@ -25,8 +25,11 @@ out/
 .gradle/
 build/
 
-gradle
+gradle/*
+!gradle/wrapper
+gradle/wrapper/*
 !gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
 
 # Local configuration file (sdk path, etc)
 local.properties
