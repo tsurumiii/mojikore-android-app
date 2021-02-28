@@ -1,6 +1,9 @@
 package com.volare.mojikore.ui.mojiRegister
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Base64
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.volare.mojikore.R
 import com.volare.mojikore.databinding.MojiRegisterFragmentBinding
+import kotlinx.android.synthetic.main.moji_register_fragment.*
 
 class MojiRegisterFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -19,5 +23,12 @@ class MojiRegisterFragment: Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val imgBytes = Base64.decode(arguments?.getString("image"), 0)
+        BitmapFactory.decodeByteArray(imgBytes, 0, imgBytes.size)?.let {
+            image.setImageBitmap(it)
+        }
     }
 }

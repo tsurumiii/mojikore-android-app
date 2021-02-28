@@ -35,6 +35,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="408dp"
+            android:layout_height="204dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
         <Button
             android:id="@+id/moji_register_button"
             android:layout_width="360sp"

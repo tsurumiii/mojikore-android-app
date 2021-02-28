@@ -34,11 +34,6 @@
             app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
             tools:visibility="visible" />
 
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
         <Button
             android:id="@+id/moji_list_button"
             android:layout_width="360sp"
