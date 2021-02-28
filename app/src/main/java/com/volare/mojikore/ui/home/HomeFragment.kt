@@ -1,7 +1,6 @@
 package com.volare.mojikore.ui.home
 
 
-import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -16,7 +15,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.volare.mojikore.MainActivity
+import androidx.navigation.fragment.findNavController
 import com.volare.mojikore.R
 import com.volare.mojikore.databinding.HomeFragmentBinding
 import kotlinx.android.synthetic.main.home_fragment.*
@@ -29,7 +28,7 @@ class HomeFragment: Fragment() {
         val binding: HomeFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.home_fragment, container, false)
 
         binding.mojiListButton.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_homeFragment_to_mojiListFragment)
+            this.findNavController().navigate(R.id.action_homeFragment_to_mojiListFragment)
         }
 
         binding.launchCameraButton.setOnClickListener { view: View ->
@@ -76,6 +75,7 @@ class HomeFragment: Fragment() {
 
         data?.extras?.get("data")?.let {
             image.setImageBitmap(it as Bitmap)
+            this.findNavController().navigate(R.id.action_homeFragment_to_mojiRegisterFragment)
         }
     }
 }
