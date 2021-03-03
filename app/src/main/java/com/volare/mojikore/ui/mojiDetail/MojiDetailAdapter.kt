@@ -6,27 +6,35 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.skydoves.bindables.binding
 import com.volare.mojikore.R
+import com.volare.mojikore.databinding.MojiGridViewBinding
 
-class MojiDetailAdapter(private val customList: Array<String>) :
+class MojiDetailAdapter :
         RecyclerView.Adapter<MojiDetailAdapter.CustomViewHolder>() {
-
-    class CustomViewHolder(item: View) : RecyclerView.ViewHolder(item) {
-        val img = item.findViewById<ImageView>(R.id.imageView)
-        val txt = item.findViewById<TextView>(R.id.dateTimeValue)
-    }
-
-    override fun getItemCount(): Int {
-        return customList.size
-    }
+    private val items: MutableList<String> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.moji_grid_view, parent, false)
-        return CustomViewHolder(view)
+        val binding =  parent.binding<MojiGridViewBinding>(R.layout.moji_grid_view)
+
+        return CustomViewHolder(binding)
+    }
+
+    fun setGridList(list: List<String>) {
+        val previousItemSize = items.size
+        items.clear()
+        items.addAll(list)
+        notifyItemRangeChanged(previousItemSize, list.size)
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
-        holder.txt.text = customList[position]
-        holder.img.setImageResource(R.mipmap.ic_launcher_round)
+        holder.binding.apply {
+            item = items[position]
+            executePendingBindings()
+        }
     }
+
+    override fun getItemCount() = items.size
+
+    class CustomViewHolder(val binding: MojiGridViewBinding) : RecyclerView.ViewHolder(binding.root)
 }

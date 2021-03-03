@@ -1,7 +1,6 @@
 package com.volare.mojikore.ui.home
 
 
-import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -16,7 +15,6 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.volare.mojikore.MainActivity
 import com.volare.mojikore.R
 import com.volare.mojikore.databinding.HomeFragmentBinding
 import kotlinx.android.synthetic.main.home_fragment.*
