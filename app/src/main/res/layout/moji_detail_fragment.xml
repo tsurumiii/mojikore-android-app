@@ -5,8 +5,16 @@
 
     <data>
         <variable
-            name="viewModel"
+            name="vm"
             type="com.volare.mojikore.ui.mojiDetail.MojiDetailViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.volare.mojikore.ui.mojiDetail.MojiDetailAdapter" />
+
+        <variable
+            name="mainVm"
+            type="com.volare.mojikore.ui.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,10 +29,17 @@
             android:layout_height="0dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
+            android:scrollbars="vertical"
+            app:adapter="@{adapter}"
+            app:adapterMojiList="@{vm.mojiListLiveData}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/found_user_rate" />
+            app:layout_constraintTop_toBottomOf="@+id/found_user_rate"
+            tools:listitem="@layout/moji_grid_view"
+            />
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
@@ -32,7 +47,10 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            >
 
             <include
                 android:id="@+id/main_toolbar"
@@ -45,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="No.1"
+            android:text="@{mainVm.index.toString()}"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
