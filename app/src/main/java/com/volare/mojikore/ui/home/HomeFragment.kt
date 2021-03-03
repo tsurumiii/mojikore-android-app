@@ -6,18 +6,23 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Base64
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.volare.mojikore.R
 import com.volare.mojikore.databinding.HomeFragmentBinding
 import kotlinx.android.synthetic.main.home_fragment.*
+import java.io.ByteArrayOutputStream
 
 class HomeFragment: Fragment() {
     private val CAMERA_REQUEST_CODE = 1
@@ -27,7 +32,7 @@ class HomeFragment: Fragment() {
         val binding: HomeFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.home_fragment, container, false)
 
         binding.mojiListButton.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_homeFragment_to_mojiListFragment)
+            this.findNavController().navigate(R.id.action_homeFragment_to_mojiListFragment)
         }
 
         binding.launchCameraButton.setOnClickListener { view: View ->
@@ -73,7 +78,11 @@ class HomeFragment: Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
 
         data?.extras?.get("data")?.let {
-            image.setImageBitmap(it as Bitmap)
+            val bitmap = it as Bitmap
+            val bytes = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, bytes)
+            val bundle = bundleOf("image" to Base64.encodeToString(bytes.toByteArray(), Base64.DEFAULT))
+            this.findNavController().navigate(R.id.action_homeFragment_to_mojiRegisterFragment, bundle)
         }
     }
 }

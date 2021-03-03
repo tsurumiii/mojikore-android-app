@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.mojiRegister.MojiListFragment">
+    tools:context=".ui.mojiRegister.MojiRegisterFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
 
             <include
                 android:id="@+id/main_toolbar"
-                layout="@layout/toolbar_moji_list" />
+                layout="@layout/toolbar_moji_register" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -28,12 +28,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="一覧画面"
+            android:text="登録画面"
             android:textSize="32sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="408dp"
+            android:layout_height="204dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+        <Button
+            android:id="@+id/moji_register_button"
+            android:layout_width="360sp"
+            android:layout_height="56sp"
+            android:background="@drawable/rounded_button"
+            android:text="登録する"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.873" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

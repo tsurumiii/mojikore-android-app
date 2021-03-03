@@ -21,8 +21,11 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.volare.mojikore.ui.home.HomeFragment"
-        android:label="sample"
+        android:label="HomeFragment"
         tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/action_homeFragment_to_mojiRegisterFragment"
+            app:destination="@id/mojiRegisterFragment" />
         <action
             android:id="@+id/action_homeFragment_to_mojiListFragment"
             app:destination="@id/mojiListFragment" />
@@ -33,6 +36,15 @@
         android:label="MojiDetailFragment"
         tools:layout="@layout/moji_detail_fragment"
         />
+    <fragment
+        android:id="@+id/mojiRegisterFragment"
+        android:name="com.volare.mojikore.ui.mojiRegister.MojiRegisterFragment"
+        android:label="MojiRegisterFragment"
+        tools:layout="@layout/moji_register_fragment">
+        <action
+            android:id="@+id/action_mojiRegisterFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/mojiListFragment"
         android:name="com.volare.mojikore.ui.mojiList.MojiListFragment"
