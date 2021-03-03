@@ -1,15 +1,18 @@
 package com.volare.mojikore.ui.mojiDetail
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.skydoves.pokedex.base.LiveCoroutinesViewModel
+import javax.inject.Inject
 
-class MojiDetailViewModel(): ViewModel() {
+class MojiDetailViewModel @Inject constructor() : LiveCoroutinesViewModel()  {
 
-    private val _mojiListLiveData: MutableLiveData<Array<String>> = MutableLiveData()
-    val mojiListLiveData: LiveData<Array<String>> get() = _mojiListLiveData
+    private val _mojiListLiveData: MutableLiveData<List<String>> = MutableLiveData(listOf("", "", ""))
+    val mojiListLiveData: LiveData<List<String>> get() = _mojiListLiveData
 
     init {
-        _mojiListLiveData.value =  Array<String>(23) {"テキスト$it"}
+        Log.v("MojiDetailViewModel", "activity view model: $mojiListLiveData")
+        _mojiListLiveData.value =  List<String>(23) {"テキスト$it"}
     }
 }

@@ -5,31 +5,36 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.VisibleForTesting
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.fragment.app.activityViewModels
 import com.volare.mojikore.R
 import com.volare.mojikore.databinding.MojiDetailFragmentBinding
+import com.volare.mojikore.ui.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-class MojiDetailFragment: Fragment() {
-    private lateinit var viewModel: MojiDetailViewModel
+@AndroidEntryPoint
+class MojiDetailFragment: Fragment()  {
+
+    @VisibleForTesting
+    val viewModel: MojiDetailViewModel by activityViewModels()
+
+    private val mainViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        super.onCreate(savedInstanceState)
+
+        Log.v("main activity", "MojiDetailActivity viewModel: $mainViewModel")
+
         val binding: MojiDetailFragmentBinding = DataBindingUtil.inflate(
-                inflater, R.layout.moji_detail_fragment, container, false)
+            inflater, R.layout.moji_detail_fragment, container, false
+        )
 
-        viewModel = ViewModelProvider(this).get(MojiDetailViewModel::class.java)
-
-        val list = viewModel.mojiListLiveData.value as Array<String>
-
-        val adapter =  MojiDetailAdapter(list)
-        val layoutManager = GridLayoutManager(activity, 2)
-
-        binding.mojiDetailList.layoutManager =  layoutManager
-        binding.mojiDetailList.setHasFixedSize(true)
-        binding.mojiDetailList.adapter = adapter
-        return binding.root
+        binding.vm = viewModel
+        binding.adapter = MojiDetailAdapter()
+        binding.mainVm = mainViewModel
+        return binding.root;
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
