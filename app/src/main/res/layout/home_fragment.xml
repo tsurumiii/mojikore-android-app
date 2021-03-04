@@ -9,6 +9,30 @@
         android:layout_height="match_parent"
         android:background="#FFFFFF">
 
+        <ImageView
+            android:id="@+id/home_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/home_background" />
+
+        <ImageView
+            android:id="@+id/home_logo"
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3"
+            app:srcCompat="@drawable/logo" />
+
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
@@ -17,69 +41,35 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="152dp"
-            android:text="もじコレ"
-            android:textAlignment="center"
-            android:textColor="#F49F1F"
-            android:textSize="36sp"
-            android:textStyle="bold"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-            tools:visibility="visible" />
-
         <Button
-            android:id="@+id/moji_list_button"
-            android:layout_width="360sp"
-            android:layout_height="56sp"
-            android:background="@drawable/rounded_button"
-            android:text="文字一覧"
+            android:id="@+id/launch_camera_button"
+            android:layout_width="140dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="90dp"
+            android:background="@drawable/blue_button"
+            android:paddingLeft="10dp"
+            android:drawableLeft="@drawable/ic_camera"
+            android:text="写真を撮る"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.49"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.873" />
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/launch_camera_button"
-            android:layout_width="360sp"
-            android:layout_height="56sp"
-            android:layout_marginBottom="11dp"
-            android:background="@drawable/rounded_button"
-            android:text="カメラ起動"
+            android:id="@+id/moji_list_button"
+            android:layout_width="140dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="90dp"
+            android:background="@drawable/orange_button"
+            android:text="A 文字一覧"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/moji_list_button"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.49"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.994" />
-
-        <Button
-            android:id="@+id/mission_button"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginBottom="50dp"
-            android:background="@drawable/rounded_button"
-            android:text="ミッション"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/launch_camera_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.916"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.964" />
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
