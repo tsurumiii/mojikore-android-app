@@ -1,9 +1,7 @@
 package com.volare.mojikore.di
 
 import com.skydoves.sandwich.coroutines.CoroutinesResponseCallAdapterFactory
-import com.volare.mojikore.network.HttpRequestInterceptor
-import com.volare.mojikore.network.MojikoreClient
-import com.volare.mojikore.network.MojikoreService
+import com.volare.mojikore.network.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,7 +29,7 @@ object NetworkModule {
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl("https://pokeapi.co/api/v2/")
+            .baseUrl("https://vision.googleapis.com/v1/")
             .addConverterFactory(MoshiConverterFactory.create())
             .addCallAdapterFactory(CoroutinesResponseCallAdapterFactory())
             .build()
@@ -47,5 +45,17 @@ object NetworkModule {
     @Singleton
     fun providerMojikoreClient(mojikoreService: MojikoreService): MojikoreClient {
         return MojikoreClient(mojikoreService)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCloudVisionService(retrofit: Retrofit): CloudVisionService {
+        return retrofit.create(CloudVisionService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun providerCloudVisionClient(cloudVisionService: CloudVisionService): CloudVisionClient {
+        return CloudVisionClient(cloudVisionService)
     }
 }
