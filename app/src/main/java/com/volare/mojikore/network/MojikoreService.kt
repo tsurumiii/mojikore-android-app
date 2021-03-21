@@ -4,6 +4,7 @@ import com.skydoves.sandwich.ApiResponse
 import com.volare.mojikore.model.PokemonResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
+import retrofit2.http.Url
 
 interface MojikoreService {
 
