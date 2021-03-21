@@ -5,7 +5,7 @@
     <data>
         <variable
             name="item"
-            type="String" />
+            type="com.volare.mojikore.model.Image" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,6 +16,8 @@
         android:textAlignment="textStart">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:clickable="true"
             android:layout_width="176dp"
             android:layout_height="192dp"
             app:cardCornerRadius="4dp"
@@ -38,70 +40,72 @@
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
                     android:background="#F49F1F"
-                    android:scaleType="fitCenter"
+                    android:scaleType="centerCrop"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@mipmap/ic_launcher_round" />
+                    tools:src="@mipmap/ic_launcher_round"
+                    app:imageUrl="@{item.imgUrl}" />
 
-                <TextView
-                    android:id="@+id/dateTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                <LinearLayout
+                    android:id="@+id/deteTimeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
                     android:layout_marginTop="8dp"
-                    android:text="日時"
-                    android:textColor="@color/black"
-                    android:textSize="10sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/imageView"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                <TextView
-                    android:id="@+id/place"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="場所"
-                    android:textColor="@color/black"
-                    android:textSize="10sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/imageView"
-                    app:layout_constraintTop_toBottomOf="@+id/dateTime" />
-
-                <TextView
-                    android:id="@+id/dateTimeValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@{item}"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/black"
-                    android:textSize="10sp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.281"
-                    app:layout_constraintStart_toEndOf="@+id/dateTime"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView">
 
-                <TextView
-                    android:id="@+id/placeValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="東京都〇〇区××"
-                    android:textColor="@color/black"
-                    android:textSize="10sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    <ImageView
+                        android:id="@+id/dateTimeIcon"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginRight="8dp"
+                        app:srcCompat="@drawable/ic_baseline_access_time" />
+
+                    <TextView
+                        android:id="@+id/dateTimeValue"
+                        android:layout_width="122dp"
+                        android:layout_height="15dp"
+                        android:text="@{item.date}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="10sp"
+                        tools:text="2021/3/18(木) 21:00" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/placeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.281"
-                    app:layout_constraintStart_toEndOf="@+id/dateTime"
-                    app:layout_constraintTop_toBottomOf="@+id/dateTimeValue" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/deteTimeLayout">
 
+                    <ImageView
+                        android:id="@+id/locationIcon"
+                        android:layout_width="10dp"
+                        android:layout_height="15dp"
+                        android:layout_marginRight="8dp"
+                        app:srcCompat="@drawable/ic_baseline_location_on" />
+
+                    <TextView
+                        android:layout_width="122dp"
+                        android:layout_height="15dp"
+                        android:singleLine="true"
+                        android:text="@{item.place}"
+                        android:textColor="@color/black"
+                        android:textSize="10sp"
+                        tools:text="東京都〇〇区××××××××××××××" />
+                </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
