@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="22dp"
+    android:background="#00000000"
+    android:orientation="vertical">
+
+    <ImageButton
+        android:id="@+id/ic_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/ic_close"
+        android:layout_marginBottom="5dp"/>
+
+    <ImageView
+        android:id="@+id/moji_detail_image"
+        android:layout_width="wrap_content"
+        android:layout_height="249dp"
+        android:background="#FFFFBB33"
+        android:contentDescription="@string/app_name"
+        android:scaleType="center"
+        android:src="@drawable/no_image" />
+
+</LinearLayout>
