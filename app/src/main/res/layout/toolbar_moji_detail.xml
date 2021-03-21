@@ -17,7 +17,7 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#F49F1F">
+    android:background="#5FA0F5">
 
     <TextView
         android:id="@+id/toolbar_title"
@@ -26,6 +26,7 @@
         android:maxEms="15"
         android:text="あつめたもじ"
         android:textColor="@color/white"
-        android:textSize="21sp" />
+        android:textSize="21sp"
+        android:gravity="center"/>
 
 </androidx.appcompat.widget.Toolbar>
