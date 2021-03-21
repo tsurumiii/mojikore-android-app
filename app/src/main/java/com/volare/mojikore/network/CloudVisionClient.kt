@@ -10,8 +10,8 @@ class CloudVisionClient @Inject constructor(
     private val cloudVisionService: CloudVisionService
 ) {
     suspend fun detectChars(imgStr: String): ApiResponse<DetectCharsResponse> {
-        return cloudVisionService.detectChars(
-            body = DetectCharsRequest(listOf(Request(Image(imgStr))))
+        return CloudVisionApi.cloudVisionService.detectChars(
+                body = DetectCharsRequest(listOf(Request(Image(imgStr))))
         )
     }
 }

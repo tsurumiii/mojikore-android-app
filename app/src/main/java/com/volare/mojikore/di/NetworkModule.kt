@@ -9,7 +9,6 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -29,7 +28,7 @@ object NetworkModule {
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl("https://vision.googleapis.com/v1/")
+            .baseUrl("https://pokeapi.co/api/v2/")
             .addConverterFactory(MoshiConverterFactory.create())
             .addCallAdapterFactory(CoroutinesResponseCallAdapterFactory())
             .build()
