@@ -33,13 +33,21 @@
     <fragment
         android:id="@+id/mojiDetailFragment"
         android:name="com.volare.mojikore.ui.mojiDetail.MojiDetailFragment"
-        android:label="MojiDetailFragment"
+        android:label="あつめた文字"
         tools:layout="@layout/moji_detail_fragment"
-        />
+        >
+        <action
+            android:id="@+id/action_mojiDetailFragment_to_mojiDetailDialogFragment"
+            app:destination="@id/mojiDetailDialogFragment" >
+            <argument
+                android:name="url"
+                android:defaultValue="aaa" />
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/mojiRegisterFragment"
         android:name="com.volare.mojikore.ui.mojiRegister.MojiRegisterFragment"
-        android:label="MojiRegisterFragment"
+        android:label="もじの登録"
         tools:layout="@layout/moji_register_fragment">
         <action
             android:id="@+id/action_mojiRegisterFragment_to_homeFragment"
@@ -49,5 +57,15 @@
         android:id="@+id/mojiListFragment"
         android:name="com.volare.mojikore.ui.mojiList.MojiListFragment"
         android:label="MojiListFragment" />
+
+    <dialog
+        android:id="@+id/mojiDetailDialogFragment"
+        android:name="com.volare.mojikore.ui.mojiDetail.MojiDetailDialogFragment"
+        android:label="mojiDetailDialogFragment"
+        tools:layout="@layout/moji_detail_dialog">
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </dialog>
 
 </navigation>
